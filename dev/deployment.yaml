@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: svenkatrav0408/demo-app:node-1.0
+        image: svenkatrav0408/demo-app:java-1.0
         ports:
         - containerPort: 8080
