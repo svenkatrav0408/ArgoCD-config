@@ -16,30 +16,31 @@
 
 ## What is ArgoCD
 
-**ArgoCD** is a declarative, GitOps continuous delivery tool for Kubernetes. It follows the GitOps pattern where Git repositories are considered the source of truth for defining the desired application state and configuration.
-
-### Key Characteristics:
-- **Declarative**: Describes what the system should look like, not how to get there
-- **GitOps-based**: Uses Git as the single source of truth
-- **Kubernetes-native**: Built specifically for Kubernetes environments
-- **Automated**: Automatically syncs and deploys applications based on Git changes
+**ArgoCD** is a declarative, GitOps continuous delivery tool for Kubernetes. It follows the GitOps pattern where Git repositories are considered the source of truth for defining the desired applicatio[...]
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "ArgoCD Core Components"
         A[Git Repository] --> B[ArgoCD Server]
         B --> C[Application Controller]
         C --> D[Kubernetes Cluster]
-        
         E[ArgoCD CLI] --> B
         F[ArgoCD UI] --> B
-        
-        style A fill:#4fc3f7,stroke:#0277bd,stroke-width:3px
-        style B fill:#ffb74d,stroke:#f57c00,stroke-width:3px
-        style C fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style D fill:#81c784,stroke:#388e3c,stroke-width:3px
-        style E fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style F fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
+        style A fill:#ffffff,stroke:#0277bd,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#f57c00,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#8e24aa,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#f9a825,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#c2185b,stroke-width:3px,color:#222
     end
 ```
 
@@ -50,6 +51,15 @@ graph TB
 Traditional continuous deployment workflows often involve multiple manual steps, complex pipelines, and potential human errors.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph LR
     subgraph "Traditional CD Pipeline"
         A[Test] --> B[Build Image]
@@ -57,34 +67,29 @@ graph LR
         C --> D[Update K8s manifest File]
         D --> E[kubectl apply...]
         E --> F[New version deployed!]
-        
         subgraph "CI Phase"
             A
             B
             C
         end
-        
         subgraph "CD Phase"
             D
             E
         end
-        
         subgraph "CI/CD Server"
             G[Jenkins/CI Server]
         end
-        
         subgraph "Kubernetes Cluster"
             H[Deployed Pods]
         end
-        
-        style A fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style B fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style C fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style D fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style E fill:#ef9a9a,stroke:#d32f2f,stroke-width:3px
-        style F fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style G fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style H fill:#e0f2f1,stroke:#00695c,stroke-width:3px
+        style A fill:#ffffff,stroke:#0288d1,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#f57c00,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#d32f2f,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#f9a825,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#00695c,stroke-width:3px,color:#222
     end
 ```
 
@@ -102,25 +107,32 @@ graph LR
 ArgoCD implements GitOps principles, creating a more reliable and automated deployment process.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "GitOps CD with ArgoCD"
         A[Developer Commits] --> B[Git Repository]
         B --> C[ArgoCD Detects Changes]
         C --> D[Automatic Sync]
         D --> E[Kubernetes Cluster]
-        
         F[Health Monitoring] --> G[Status Reporting]
         H[Drift Detection] --> I[Auto-Sync or Alert]
-        
-        style A fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style B fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style C fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style D fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style E fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style F fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style G fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style H fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style I fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
+        style A fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#c2185b,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#f9a825,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#00695c,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
     end
 ```
 
@@ -138,32 +150,38 @@ graph TB
 GitOps with ArgoCD provides numerous advantages for modern application deployment and management.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph LR
     subgraph "GitOps Benefits with ArgoCD"
         A[Git as Source of Truth] --> B[Version Control]
         B --> C[Audit Trail]
         C --> D[Compliance]
-        
         E[Automated Sync] --> F[Reduced Manual Work]
         F --> G[Faster Deployments]
         G --> H[Lower Error Rate]
-        
         I[Declarative Config] --> J[Infrastructure as Code]
         J --> K[Reproducible Environments]
         K --> L[Easy Rollbacks]
-        
-        style A fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style B fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style C fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style D fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style E fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style F fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style G fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style H fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style I fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style J fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style K fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style L fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
+        style A fill:#ffffff,stroke:#0288d1,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#f9a825,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#00695c,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style J fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style K fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style L fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
     end
 ```
 
@@ -181,34 +199,40 @@ graph LR
 In GitOps, Git repositories become the authoritative source for all infrastructure and application configurations.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "Git as Single Source of Truth"
         A[Git Repository] --> B[Infrastructure Configs]
         A --> C[Application Manifests]
         A --> D[Environment Variables]
         A --> E[Security Policies]
-        
         F[ArgoCD] --> G[Monitors Git Changes]
         G --> H[Auto-Syncs to Clusters]
-        
         I[Developers] --> J[Pull Requests]
         J --> K[Code Review]
         K --> L[Merge to Main]
         L --> M[Automatic Deployment]
-        
-        style A fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style B fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style C fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style D fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style E fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style F fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style G fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style H fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style I fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style J fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style K fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style L fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style M fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
+        style A fill:#ffffff,stroke:#0288d1,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#f9a825,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#00695c,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style J fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style K fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style L fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style M fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
     end
 ```
 
@@ -226,24 +250,31 @@ graph TB
 ArgoCD makes rollbacks simple and reliable by leveraging Git's version control capabilities.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph LR
     subgraph "Rollback Process with ArgoCD"
         A[Issue Detected] --> B[Identify Bad Commit]
         B --> C[Git Revert/Rollback]
         C --> D[ArgoCD Auto-Sync]
         D --> E[Previous State Restored]
-        
         F[Alternative: Git Reset] --> G[Force Sync to Previous Commit]
         G --> H[Immediate Rollback]
-        
-        style A fill:#ef9a9a,stroke:#d32f2f,stroke-width:3px
-        style B fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
-        style C fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style D fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style E fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style F fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style G fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style H fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
+        style A fill:#ffffff,stroke:#d32f2f,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#d32f2f,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#f57c00,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#8e24aa,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#c2185b,stroke-width:3px,color:#222
     end
 ```
 
@@ -266,6 +297,15 @@ graph LR
 ArgoCD simplifies disaster recovery by maintaining cluster state in Git repositories.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "Disaster Recovery with ArgoCD"
         A[Cluster Failure] --> B[Assess Damage]
@@ -274,22 +314,20 @@ graph TB
         D --> E[Point to Git Repo]
         E --> F[Auto-Sync Applications]
         F --> G[Cluster Restored]
-        
         H[Backup Strategy] --> I[Git Repository Backup]
         I --> J[Off-site Storage]
         J --> K[Recovery Testing]
-        
-        style A fill:#ef9a9a,stroke:#d32f2f,stroke-width:3px
-        style B fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
-        style C fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style D fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style E fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style F fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style G fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style H fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style I fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style J fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style K fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
+        style A fill:#ffffff,stroke:#d32f2f,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#d32f2f,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#c2185b,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#f9a825,stroke-width:3px,color:#222
+        style J fill:#f3f3f3,stroke:#00695c,stroke-width:3px,color:#222
+        style K fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
     end
 ```
 
@@ -362,6 +400,15 @@ A comprehensive comparison of ArgoCD with other popular GitOps and CD tools in t
 ArgoCD is designed as a native Kubernetes extension, leveraging Kubernetes APIs and resources.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "ArgoCD as Kubernetes Extension"
         A[ArgoCD Server] --> B[Kubernetes API Server]
@@ -369,29 +416,26 @@ graph TB
         C --> D[Applications]
         C --> E[Projects]
         C --> F[Repositories]
-        
         G[ArgoCD Controller] --> H[Reconciliation Loop]
         H --> I[State Comparison]
         I --> J[Sync Operations]
-        
         K[ArgoCD UI] --> L[Web Interface]
         L --> M[Application Management]
         L --> N[Health Monitoring]
-        
-        style A fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style B fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style C fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style D fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style E fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style F fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style G fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style H fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style I fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style J fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style K fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style L fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style M fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style N fill:#fff59d,stroke:#f9a825,stroke-width:3px
+        style A fill:#ffffff,stroke:#0288d1,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#f9a825,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#00695c,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style J fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style K fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style L fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style M fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
+        style N fill:#f3f3f3,stroke:#f9a825,stroke-width:3px,color:#222
     end
 ```
 
@@ -414,6 +458,15 @@ graph TB
 Setting up ArgoCD involves several configuration steps for a production-ready deployment.
 
 ```mermaid
+---
+theme: "base"
+themeVariables:
+  primaryColor: "#ffffff"
+  secondaryColor: "#f3f3f3"
+  edgeLabelBackground: "#ffffff"
+  fontSize: "16px"
+  textColor: "#222222"
+---
 graph TB
     subgraph "ArgoCD Configuration Steps"
         A[Install ArgoCD] --> B[Configure RBAC]
@@ -422,22 +475,20 @@ graph TB
         D --> E[Define Applications]
         E --> F[Configure Sync Policies]
         F --> G[Set up Notifications]
-        
         H[Security Config] --> I[SSO Integration]
         I --> J[Network Policies]
         J --> K[Resource Limits]
-        
-        style A fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style B fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style C fill:#ffcc80,stroke:#f57c00,stroke-width:3px
-        style D fill:#ce93d8,stroke:#8e24aa,stroke-width:3px
-        style E fill:#f8bbd9,stroke:#c2185b,stroke-width:3px
-        style F fill:#fff59d,stroke:#f9a825,stroke-width:3px
-        style G fill:#b2dfdb,stroke:#00695c,stroke-width:3px
-        style H fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
-        style I fill:#a5d6a7,stroke:#388e3c,stroke-width:3px
-        style J fill:#81d4fa,stroke:#0288d1,stroke-width:3px
-        style K fill:#ffcc80,stroke:#f57c00,stroke-width:3px
+        style A fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style B fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style C fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
+        style D fill:#f3f3f3,stroke:#8e24aa,stroke-width:3px,color:#222
+        style E fill:#ffffff,stroke:#c2185b,stroke-width:3px,color:#222
+        style F fill:#f3f3f3,stroke:#f9a825,stroke-width:3px,color:#222
+        style G fill:#ffffff,stroke:#00695c,stroke-width:3px,color:#222
+        style H fill:#f3f3f3,stroke:#388e3c,stroke-width:3px,color:#222
+        style I fill:#ffffff,stroke:#388e3c,stroke-width:3px,color:#222
+        style J fill:#f3f3f3,stroke:#0288d1,stroke-width:3px,color:#222
+        style K fill:#ffffff,stroke:#f57c00,stroke-width:3px,color:#222
     end
 ```
 
@@ -523,7 +574,7 @@ ArgoCD represents a paradigm shift in how we approach continuous deployment in K
 - **Simplicity**: Declarative configuration management
 - **Recovery**: Easy rollbacks and disaster recovery
 
-The combination of Git as the single source of truth and ArgoCD as the deployment controller creates a robust, auditable, and maintainable deployment pipeline that scales with modern application architectures.
+The combination of Git as the single source of truth and ArgoCD as the deployment controller creates a robust, auditable, and maintainable deployment pipeline that scales with modern application archi[...]
 
 ---
 
