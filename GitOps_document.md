@@ -15,7 +15,7 @@
 
 ## Introduction
 
-GitOps is a modern approach to continuous deployment that leverages Git as the single source of truth for declarative infrastructure and applications. It represents a paradigm shift from traditional CI/CD pipelines to a Git-centric workflow that ensures consistency, traceability, and reliability across all environments.
+GitOps is a modern approach to continuous deployment that leverages Git as the single source of truth for declarative infrastructure and applications. It represents a paradigm shift from traditional C[...]
 
 **Key Benefits:**
 - 🚀 **Faster Deployments** - Automated deployments triggered by Git changes
@@ -31,6 +31,7 @@ GitOps is a modern approach to continuous deployment that leverages Git as the s
 The "X as Code" movement represents the evolution of treating various IT resources as code that can be versioned, tested, and deployed automatically.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TB
     subgraph "X as Code Evolution"
         A[Infrastructure as Code] --> B[Configuration as Code]
@@ -39,18 +40,18 @@ graph TB
         D --> E[Documentation as Code]
         E --> F[Everything as Code]
     end
-    
+
     subgraph "Benefits"
         G[Version Control] --> H[Automation]
         H --> I[Consistency]
         I --> J[Reproducibility]
         J --> K[Collaboration]
     end
-    
-    style A fill:#e1f5fe
-    style F fill:#4caf50
-    style G fill:#fff3e0
-    style K fill:#e8f5e8
+
+    style A fill:#e1f5fe,stroke:#333,stroke-width:1px
+    style F fill:#4caf50,stroke:#333,stroke-width:1px
+    style G fill:#fff3e0,stroke:#333,stroke-width:1px
+    style K fill:#e8f5e8,stroke:#333,stroke-width:1px
 ```
 
 **Core Principles:**
@@ -67,6 +68,7 @@ graph TB
 Many organizations implement Infrastructure as Code but still follow traditional deployment patterns, missing the full benefits of GitOps.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#ffe0e0', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph LR
     subgraph "Traditional IaC Anti-Patterns"
         A[Manual Deployments] --> B[Direct CLI Access]
@@ -74,18 +76,18 @@ graph LR
         C --> D[Inconsistent States]
         D --> E[Security Risks]
     end
-    
+
     subgraph "Problems"
         F[No Audit Trail] --> G[Manual Interventions]
         G --> H[Configuration Drift]
         H --> I[Rollback Complexity]
         I --> J[Compliance Issues]
     end
-    
-    style A fill:#ffebee
-    style E fill:#ffebee
-    style F fill:#ffebee
-    style J fill:#ffebee
+
+    style A fill:#ffebee,stroke:#333,stroke-width:1px
+    style E fill:#ffebee,stroke:#333,stroke-width:1px
+    style F fill:#ffebee,stroke:#333,stroke-width:1px
+    style J fill:#ffebee,stroke:#333,stroke-width:1px
 ```
 
 **Common Anti-Patterns:**
@@ -99,26 +101,27 @@ graph LR
 
 ## What is GitOps?
 
-GitOps is an operational framework that takes DevOps best practices used for application development and applies them to infrastructure automation. It uses Git as the single source of truth for declarative infrastructure and applications.
+GitOps is an operational framework that takes DevOps best practices used for application development and applies them to infrastructure automation. It uses Git as the single source of truth for declar[...]
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e3f2fd', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TB
     subgraph "GitOps Core Principles"
         A[Declarative] --> B[Versioned & Immutable]
         B --> C[Pulled Automatically]
         C --> D[Continuously Reconciled]
     end
-    
+
     subgraph "Key Characteristics"
         E[Git as Single Source of Truth] --> F[Declarative Descriptions]
         F --> G[Automated Deployments]
         G --> H[Continuous Reconciliation]
     end
-    
-    style A fill:#e3f2fd
-    style D fill:#e3f2fd
-    style E fill:#e8f5e8
-    style H fill:#e8f5e8
+
+    style A fill:#e3f2fd,stroke:#333,stroke-width:1px
+    style D fill:#e3f2fd,stroke:#333,stroke-width:1px
+    style E fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style H fill:#e8f5e8,stroke:#333,stroke-width:1px
 ```
 
 **GitOps Definition:**
@@ -131,29 +134,30 @@ graph TB
 GitOps operates on a continuous reconciliation model where the desired state in Git is automatically synchronized with the actual state in the target environment.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TD
     subgraph "Git Repository"
         A[Infrastructure Code] --> B[Application Manifests]
         B --> C[Configuration Files]
     end
-    
+
     subgraph "GitOps Operator"
         D[Monitor Git Changes] --> E[Detect Drift]
         E --> F[Reconcile State]
     end
-    
+
     subgraph "Target Environment"
         G[Kubernetes Cluster] --> H[Applications]
         H --> I[Infrastructure]
     end
-    
+
     A --> D
     D --> G
     G --> E
-    
-    style A fill:#e8f5e8
-    style D fill:#fff3e0
-    style G fill:#e1f5fe
+
+    style A fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style D fill:#fff3e0,stroke:#333,stroke-width:1px
+    style G fill:#e1f5fe,stroke:#333,stroke-width:1px
 ```
 
 **Workflow Steps:**
@@ -171,34 +175,35 @@ graph TD
 GitOps introduces a fundamental shift from traditional push-based deployments to a pull-based model that enhances security and reliability.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TB
     subgraph "Traditional Push Model"
         A[CI Server] -->|Push| B[Production Environment]
         A -->|Push| C[Staging Environment]
         A -->|Push| D[Development Environment]
-        
-        style A fill:#ffebee
-        style B fill:#ffebee
-        style C fill:#ffebee
-        style D fill:#ffebee
+
+        style A fill:#ffebee,stroke:#333,stroke-width:1px
+        style B fill:#ffebee,stroke:#333,stroke-width:1px
+        style C fill:#ffebee,stroke:#333,stroke-width:1px
+        style D fill:#ffebee,stroke:#333,stroke-width:1px
     end
-    
+
     subgraph "GitOps Pull Model"
         E[Git Repository] -->|Pull| F[Production Operator]
         E -->|Pull| G[Staging Operator]
         E -->|Pull| H[Development Operator]
-        
+
         F -->|Reconcile| I[Production Cluster]
         G -->|Reconcile| J[Staging Cluster]
         H -->|Reconcile| K[Development Cluster]
-        
-        style E fill:#e8f5e8
-        style F fill:#e8f5e8
-        style G fill:#e8f5e8
-        style H fill:#e8f5e8
-        style I fill:#e1f5fe
-        style J fill:#e1f5fe
-        style K fill:#e1f5fe
+
+        style E fill:#e8f5e8,stroke:#333,stroke-width:1px
+        style F fill:#e8f5e8,stroke:#333,stroke-width:1px
+        style G fill:#e8f5e8,stroke:#333,stroke-width:1px
+        style H fill:#e8f5e8,stroke:#333,stroke-width:1px
+        style I fill:#e1f5fe,stroke:#333,stroke-width:1px
+        style J fill:#e1f5fe,stroke:#333,stroke-width:1px
+        style K fill:#e1f5fe,stroke:#333,stroke-width:1px
     end
 ```
 
@@ -219,28 +224,29 @@ graph TB
 One of the most powerful features of GitOps is the ability to quickly and safely rollback to any previous state by simply reverting Git commits.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph LR
     subgraph "Rollback Process"
         A[Issue Detected] --> B[Git Revert]
         B --> C[Automated Deployment]
         C --> D[Previous State Restored]
     end
-    
+
     subgraph "Rollback Benefits"
         E[Instant Recovery] --> F[No Manual Steps]
         F --> G[Consistent State]
         G --> H[Audit Trail]
     end
-    
+
     A --> E
     D --> H
-    
-    style A fill:#ffebee
-    style B fill:#fff3e0
-    style C fill:#e8f5e8
-    style D fill:#e1f5fe
-    style E fill:#e8f5e8
-    style H fill:#e1f5fe
+
+    style A fill:#ffebee,stroke:#333,stroke-width:1px
+    style B fill:#fff3e0,stroke:#333,stroke-width:1px
+    style C fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style D fill:#e1f5fe,stroke:#333,stroke-width:1px
+    style E fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style H fill:#e1f5fe,stroke:#333,stroke-width:1px
 ```
 
 **Rollback Scenarios:**
@@ -267,35 +273,36 @@ git push origin main
 Git becomes the authoritative source for all infrastructure and application configurations, ensuring consistency and traceability across all environments.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TB
     subgraph "Git Repository Structure"
         A[Main Branch] --> B[Production Environment]
         A --> C[Staging Environment]
         A --> D[Development Environment]
-        
+
         B --> E[Infrastructure Code]
         B --> F[Application Manifests]
         B --> G[Configuration Files]
-        
+
         C --> H[Infrastructure Code]
         C --> I[Application Manifests]
         C --> J[Configuration Files]
-        
+
         D --> K[Infrastructure Code]
         D --> L[Application Manifests]
         D --> M[Configuration Files]
     end
-    
+
     subgraph "Benefits"
         N[Single Source] --> O[Version Control]
         O --> P[Change Tracking]
         P --> Q[Collaboration]
         Q --> R[Compliance]
     end
-    
-    style A fill:#4caf50
-    style N fill:#e8f5e8
-    style R fill:#e8f5e8
+
+    style A fill:#4caf50,stroke:#333,stroke-width:1px
+    style N fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style R fill:#e8f5e8,stroke:#333,stroke-width:1px
 ```
 
 **Single Source of Truth Advantages:**
@@ -312,24 +319,25 @@ graph TB
 GitOps significantly enhances security by implementing the principle of least privilege and eliminating direct access to production environments.
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': { 'background': '#ffffff', 'primaryColor': '#e8f5e8', 'edgeLabelBackground':'#fff', 'textColor':'#222'}} }%%
 graph TB
     subgraph "Security Improvements"
         A[No Direct Access] --> B[Immutable Infrastructure]
         B --> C[Declarative Security]
         C --> D[Automated Compliance]
     end
-    
+
     subgraph "Security Layers"
         E[Git Authentication] --> F[RBAC Controls]
         F --> G[Network Policies]
         G --> H[Secret Management]
         H --> I[Audit Logging]
     end
-    
+
     A --> E
-    
-    style A fill:#e8f5e8
-    style E fill:#e1f5fe
+
+    style A fill:#e8f5e8,stroke:#333,stroke-width:1px
+    style E fill:#e1f5fe,stroke:#333,stroke-width:1px
 ```
 
 **Security Enhancements:**
