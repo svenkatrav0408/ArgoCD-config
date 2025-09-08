@@ -9,4 +9,4 @@ spec:
   ports:
   - port: 3000
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3000    # Changed to match container port
