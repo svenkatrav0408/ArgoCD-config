@@ -15,7 +15,10 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: svenkatrav0408/argocd:stage-amd64
+        image: svenkatrav0408/argocd:latest-amd64
+        env:
+        - name: NODE_ENV
+          value: "stage"
         ports:
         - containerPort: 3000   # Changed to match the application port
         readinessProbe:
