@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: svenkatrav0408/docker-nodejs-demo:latest
+        image: svenkatrav0408/argocd:latest
         ports:
         - containerPort: 8080

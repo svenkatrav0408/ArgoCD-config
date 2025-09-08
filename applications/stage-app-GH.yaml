@@ -6,13 +6,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-username/your-repo.git
-    path: ArgoCD-config/stage
+    repoURL: https://github.com/svenkatrav0408/ArgoCD-config.git
+    path: stage
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: stage
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true

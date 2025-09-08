@@ -5,11 +5,10 @@ metadata:
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: https://github.com/svenkatrav0408/ArgoCD-config.git
     targetRevision: HEAD
-    path: ArgoCD-config/dev
+    path: dev
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
